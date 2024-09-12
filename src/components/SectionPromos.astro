@@ -1,0 +1,47 @@
+---
+import Carousel, { type PromoCarousel } from './PromosCarousel.tsx';
+
+const promos: PromoCarousel[] = [
+  {
+    id: 'qwer',
+    name: '2x1 Cheddar',
+    description: 'No te pierdas este 2x1',
+    image: './images/mocks/promo-2x1.webp',
+  },
+  {
+    id: 'asdf',
+    name: 'La gran XL',
+    description: 'XL de verdad',
+    image: './images/mocks/promo-xl.webp',
+  },
+  {
+    id: 'zxcv',
+    name: 'Combo 1 + 6',
+    description: 'Una Burguer y media docena de empanadas',
+    image: './images/mocks/promo-burguer-empanadas.webp',
+  },
+  {
+    id: 'qwer',
+    name: '2x1 Cheddar',
+    description: 'No te pierdas este 2x1',
+    image: './images/mocks/promo-2x1.webp',
+  },
+  {
+    id: 'asdf',
+    name: 'La gran XL',
+    description: 'XL de verdad',
+    image: './images/mocks/promo-xl.webp',
+  },
+  {
+    id: 'zxcv',
+    name: 'Combo 1 + 6',
+    description: 'Una Burguer y media docena de empanadas',
+    image: './images/mocks/promo-burguer-empanadas.webp',
+  },
+];
+---
+
+<h1>Promos de la semana</h1>
+<p class="py-4 text-lg">¡No te pierdas estas promos!</p>
+
+<Carousel client:load promos={promos} />

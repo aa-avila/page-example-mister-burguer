@@ -10,7 +10,6 @@ type Props = {
 export default ({ images }: Props) => {
   return (
     <Swiper
-      className="mySwiper"
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={20}
       slidesPerView={1}
