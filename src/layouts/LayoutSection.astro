@@ -1,6 +1,20 @@
+---
+interface Props {
+  innerPx?: string;
+  innerPy?: string;
+}
+
+const { innerPx, innerPy } = Astro.props;
+
+const innerClasses = [innerPx || 'px-6', innerPy || 'px-6'];
+---
+
 <section class="flex w-full flex-col items-center justify-center px-4 py-3">
   <div
-    class="inner-container w-full max-w-2xl rounded-lg p-6 text-center elevation-2"
+    class:list={[
+      'inner-container w-full max-w-2xl rounded-lg p-6 text-center elevation-2',
+      innerClasses,
+    ]}
   >
     <slot />
   </div>
