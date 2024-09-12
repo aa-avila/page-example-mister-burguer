@@ -1,0 +1,19 @@
+---
+import Carousel from './Carousel.tsx';
+
+const images = [
+  './images/slider-00.webp',
+  './images/slider-01.webp',
+  './images/slider-02.webp',
+  './images/slider-03.webp',
+  './images/slider-04.webp',
+];
+---
+
+<h1>¡Bienvenidos!</h1>
+<p class="py-4 text-lg">
+  La hamburguesa perfecta existe. Y está en <strong>Míster Burguer.</strong> Más
+  que hamburguesas, <strong>experiencias</strong>. Míster Burguer, donde cada
+  bocado es una historia... ¡Ven a descubrirla!
+</p>
+<Carousel client:load images={images} />

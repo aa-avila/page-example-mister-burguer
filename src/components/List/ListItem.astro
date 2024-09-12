@@ -1,0 +1,12 @@
+---
+interface Props {
+  colorClasses: string;
+}
+const { colorClasses } = Astro.props;
+---
+
+<li
+  class:list={['m-2 rounded-lg border-4 border-double px-6 py-2', colorClasses]}
+>
+  <slot />
+</li>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  link: string;
+}
+
+const { link } = Astro.props;
+---
+
+<a
+  role="button"
+  class="btn btn-secondary btn-block my-2 elevation-3"
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="flex w-full flex-row items-center justify-between">
+    <!-- Icon start -->
+    <div class="flex w-full flex-row items-center justify-end pr-3">
+      <slot name="icon-start" />
+    </div>
+    <!-- default center -->
+    <div class="w-full min-w-fit text-2xl font-semibold text-primary-content">
+      <slot />
+    </div>
+    <!-- icon end -->
+    <div class="flex w-full flex-row items-center justify-start pl-3">
+      <slot name="icon-end" />
+    </div>
+  </div>
+</a>

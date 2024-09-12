@@ -1,0 +1,32 @@
+---
+import ListMain from './List/ListMain.astro';
+import ListItem from './List/ListItem.astro';
+import IconStar from './icons/IconStar.astro';
+---
+
+<div class="flex w-full flex-col items-center justify-center">
+  <IconStar class="h-7 fill-secondary" />
+  <h2>En Igraland encontrarás:</h2>
+  <div class="mt-2 flex w-full rounded-xl border-4 border-dashed border-accent">
+    <div
+      class="flex w-full flex-col items-center justify-center py-4 text-xl font-semibold uppercase"
+    >
+      <ListMain>
+        <ListItem colorClasses="bg-primary text-primary-content"
+          >Cama elástica</ListItem
+        >
+        <ListItem colorClasses="bg-secondary text-secondary-content"
+          >Tobogán</ListItem
+        >
+        <ListItem colorClasses="bg-accent text-primary-content">Parque</ListItem
+        >
+        <ListItem colorClasses="bg-secondary text-secondary-content"
+          >Salón techado</ListItem
+        >
+        <ListItem colorClasses="bg-primary text-primary-content"
+          >Cocina equipada</ListItem
+        >
+      </ListMain>
+    </div>
+  </div>
+</div>

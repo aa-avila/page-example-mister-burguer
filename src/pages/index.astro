@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LayoutSection from '../layouts/LayoutSection.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SectionAbout from '../components/SectionAbout.astro';
+import SectionCTA from '../components/SectionCTA.astro';
+// import SectionServices from '../components/SectionServices.astro';
+import SectionLocations from '../components/SectionLocations.astro';
+import SectionSocial from '../components/SectionSocial.astro';
+---
+
+<Layout
+  title="Míster Burger - Más que hamburguesas"
+  description="¡Bienvenidos a Míster Burguer!"
+>
+  <main class="flex h-full flex-col items-center justify-center bg-neutral-50">
+    <div id="bgContainer" class="w-full bg-top bg-repeat-y">
+      <Header />
+      <LayoutSection>
+        <SectionAbout />
+      </LayoutSection>
+      <!-- <LayoutSection>
+        <SectionServices />
+      </LayoutSection> -->
+      <LayoutSection>
+        <SectionCTA />
+      </LayoutSection>
+      <LayoutSection>
+        <SectionLocations />
+      </LayoutSection>
+      <LayoutSection>
+        <SectionSocial />
+      </LayoutSection>
+      <br />
+      <!-- <div
+        class="img-container flex h-44 flex-row items-center justify-between py-2"
+      >
+        <img
+          class="h-full object-contain"
+          src="./images/ph-torta.webp"
+          alt="torta-foto"
+          loading="lazy"
+        />
+        <img
+          class="h-full object-contain"
+          src="./images/ph-empanadas.webp"
+          alt="empanadas-foto"
+          loading="lazy"
+        />
+      </div> -->
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #bgContainer {
+    /* background-image: url('/images/paper-3.webp'); */
+    /* background: linear-gradient(-30deg, #18a2d9 0%, #ffffff 78%); */
+    /* background: #18a2d9; */
+
+    --bgSize: 75px; /* control the size*/
+    --bgC1: #ffb433;
+    --bgC2: #7d8d7c;
+
+    background:
+      repeating-conic-gradient(var(--bgC1) 0 25%, #0000 0 50%) 0 0 /
+        calc(4 * var(--bgSize)) calc(2 * var(--bgSize)),
+      conic-gradient(#0000 50%, var(--bgC2) 0) calc(var(--bgSize) / 2) 0 /
+        calc(2 * var(--bgSize)) 1%,
+      radial-gradient(var(--bgC2) 70%, var(--bgC1) 72%) 0 0 / var(--bgSize)
+        var(--bgSize);
+  }
+</style>

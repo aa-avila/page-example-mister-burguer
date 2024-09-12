@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import imgMapsLoc from '../assets/maps-loc.webp';
+import ButtonNormal from './ButtonNormal.astro';
+import IconLocation from './icons/IconLocation.astro';
+import IconMap from './icons/IconMap.astro';
+import { maps } from '../data/links.json';
+---
+
+<div class="flex w-full flex-col items-center justify-center">
+  <IconLocation class="h-7 fill-secondary" />
+  <h2 class="">¿Dónde estamos?</h2>
+  <Image
+    src={imgMapsLoc}
+    alt="mapa"
+    loading="lazy"
+    class="mb-2 w-full object-contain p-2"
+  />
+  <ButtonNormal link={maps}>
+    <IconMap slot="icon-start" class="h-8 fill-accent" />
+    Ver en Maps
+  </ButtonNormal>
+</div>

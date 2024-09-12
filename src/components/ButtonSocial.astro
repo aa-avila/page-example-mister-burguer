@@ -1,0 +1,55 @@
+---
+import IconFacebook from './icons/IconFacebook.astro';
+import IconTiktok from './icons/IconTiktok.astro';
+import IconInstagram from './icons/IconInstagram.astro';
+import { facebook, tiktok, instagram } from '../data/links.json';
+
+interface Props {
+  socialNet: 'facebook' | 'tiktok' | 'instagram';
+}
+const { socialNet } = Astro.props;
+
+const icons = {
+  facebook: IconFacebook,
+  tiktok: IconTiktok,
+  instagram: IconInstagram,
+};
+const texts = {
+  facebook: 'Facebook',
+  tiktok: 'TikTok',
+  instagram: 'Instagram',
+};
+const colorClasses = {
+  facebook: 'btn-facebook',
+  tiktok: 'btn-tiktok',
+  instagram: 'btn-instagram',
+};
+const links = {
+  facebook,
+  tiktok,
+  instagram,
+};
+const Icon = icons[socialNet];
+const colorClass = colorClasses[socialNet];
+---
+
+<a
+  role="button"
+  class:list={['btn btn-block my-2 elevation-3', colorClass]}
+  href={links[socialNet]}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="flex w-full flex-row items-center justify-between">
+    <!-- Icon start -->
+    <div class="flex w-full flex-row items-center justify-end pr-3">
+      <Icon />
+    </div>
+    <!-- default center -->
+    <div class="w-full text-2xl font-semibold text-white">
+      {texts[socialNet]}
+    </div>
+    <!-- icon end -->
+    <div class="flex w-full flex-row items-center justify-start pl-3"></div>
+  </div>
+</a>
