@@ -3,22 +3,36 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import type { Promotion } from '../schemas/promotion';
 
 function truncate(str: string, maxLength: number) {
   return str.length > maxLength ? str.slice(0, maxLength - 1) + '…' : str;
 }
 
-export type PromoCarousel = {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-};
+function CardPromo(promo: Promotion) {
+  return (
+    <div className="card card-compact mb-2 w-full bg-base-100 shadow-md">
+      <figure>
+        <img src={promo.images[0]} alt={promo.name} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title justify-center text-2xl">{promo.name}</h2>
+        <p className="text-base">{truncate(promo.description, 20)}</p>
+        <div className="card-actions mt-2 justify-center">
+          <button className="btn btn-primary btn-block max-w-64">
+            Ver más...
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 type Props = {
-  promos: PromoCarousel[];
+  promos: Promotion[];
 };
 export default ({ promos }: Props) => {
+  // console.log(promos);
   return (
     <Swiper
       modules={[Navigation, A11y]}
@@ -27,25 +41,11 @@ export default ({ promos }: Props) => {
       centeredSlides={true}
       navigation
       pagination={{ clickable: true }}
-      loop={true}
-      autoplay={{ delay: 5000 }}
+      // loop={true}
     >
       {promos.map((promo, index) => (
         <SwiperSlide key={`${promo.id}-${index}`}>
-          <div className="card card-compact mb-2 w-full bg-base-100 shadow-md">
-            <figure>
-              <img src={promo.image} alt={promo.name} />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title justify-center">{promo.name}</h2>
-              <p>{truncate(promo.description, 20)}</p>
-              <div className="card-actions justify-center">
-                <button className="btn btn-primary btn-block">
-                  Ver más...
-                </button>
-              </div>
-            </div>
-          </div>
+          <CardPromo {...promo} />
         </SwiperSlide>
       ))}
     </Swiper>
